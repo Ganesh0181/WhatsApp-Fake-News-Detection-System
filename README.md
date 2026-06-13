@@ -9,150 +9,94 @@ The application uses Machine Learning, Natural Language Processing (NLP), FastAP
 ## 🚀 Features
 
 ### Core Features
-- Fake News Classification
-- WhatsApp Message Analysis
-- URL Verification
-- Forwarded Message Detection
-- AI Confidence Score
-- News Source Validation
-- Fact Check Suggestions
-- Real-Time Detection Dashboard
+
+* Fake News Classification
+* WhatsApp Message Analysis
+* URL Verification
+* Forwarded Message Detection
+* AI Confidence Score
+* News Source Validation
+* Fact Check Suggestions
+* Real-Time Detection Dashboard
 
 ### Security Features
-- Docker Containerization
-- Nginx Reverse Proxy
-- Secure Sandbox Environment
-- API Rate Limiting
-- Input Validation
-- CORS Protection
-- Secure HTTP Headers
+
+* Docker Containerization
+* Nginx Reverse Proxy
+* Secure Sandbox Environment
+* API Rate Limiting
+* Input Validation
+* CORS Protection
+* Secure HTTP Headers
 
 ### AI Features
-- NLP-Based Text Processing
-- Machine Learning Classification
-- Sentiment Analysis
-- Keyword Extraction
-- Source Credibility Analysis
-- Confidence Score Generation
+
+* NLP-Based Text Processing
+* Machine Learning Classification
+* Sentiment Analysis
+* Keyword Extraction
+* Source Credibility Analysis
+* Confidence Score Generation
 
 ---
 
-# 🏗️ System Architecture
+## 🏗️ System Architecture
 
-```text
-                    ┌─────────────────┐
-                    │ WhatsApp User   │
-                    └────────┬────────┘
-                             │
-                             ▼
-                    ┌─────────────────┐
-                    │ React Frontend  │
-                    └────────┬────────┘
-                             │
-                             ▼
-                    ┌─────────────────┐
-                    │ Nginx Gateway   │
-                    │ Reverse Proxy   │
-                    └────────┬────────┘
-                             │
-          ┌──────────────────┴──────────────────┐
-          ▼                                     ▼
-
- ┌─────────────────┐                ┌─────────────────┐
- │ FastAPI Backend │                │ Sandbox Engine  │
- │ AI Processing   │                │ Secure Analysis │
- └────────┬────────┘                └─────────────────┘
-          │
-          ▼
- ┌─────────────────┐
- │ ML Model        │
- │ Fake News AI    │
- └────────┬────────┘
-          │
-          ▼
- ┌─────────────────┐
- │ Database        │
- │ Results Storage │
- └─────────────────┘
-```
+<img width="1536" height="1024" alt="System Architecture" src="https://github.com/user-attachments/assets/ada0e5fe-de77-4b3c-900f-3c7be9c519e6" />
 
 ---
 
-# 🛠️ Technology Stack
+## 🛠️ Technology Stack
 
-## Frontend
-- React.js
-- TypeScript
-- Tailwind CSS
-- Axios
-- Chart.js
+### Frontend
 
-## Backend
-- FastAPI
-- Python 3.11
-- Scikit-Learn
-- Pandas
-- NumPy
+* React.js
+* TypeScript
+* Tailwind CSS
+* Axios
+* Chart.js
 
-## Infrastructure
-- Docker
-- Docker Compose
-- Nginx
-- Linux
+### Backend
 
-## AI & NLP
-- TF-IDF Vectorization
-- Logistic Regression
-- Random Forest
-- NLP Preprocessing
+* FastAPI
+* Python 3.11
+* Scikit-Learn
+* Pandas
+* NumPy
 
----
+### Infrastructure
 
-# 📁 Project Structure
+* Docker
+* Docker Compose
+* Nginx
+* Linux
 
-```text
-WhatsApp-Fake-News-Detection-System
-│
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   └── Dockerfile
-│
-├── backend/
-│   ├── app/
-│   ├── models/
-│   ├── services/
-│   ├── Dockerfile
-│   └── requirements.txt
-│
-├── nginx/
-│   ├── nginx.conf
-│   └── Dockerfile
-│
-├── sandbox/
-│   ├── secure_runner.py
-│   └── policies/
-│
-├── datasets/
-│
-├── docker-compose.yml
-│
-└── README.md
-```
+### AI & NLP
+
+* TF-IDF Vectorization
+* Logistic Regression
+* Random Forest
+* NLP Preprocessing
 
 ---
 
-# 🔒 Sandbox Security
+## 📁 Project Structure
+
+<img width="1536" height="1024" alt="Project Structure" src="https://github.com/user-attachments/assets/218c84a9-4951-422d-8837-8d976d928286" />
+
+---
+
+## 🔒 Sandbox Security
 
 The application uses a dedicated sandbox environment for secure content analysis.
 
 ### Benefits
 
-- Isolated Execution
-- Malicious Input Protection
-- Resource Limitation
-- Secure Processing
-- Container Isolation
+* Isolated Execution
+* Malicious Input Protection
+* Resource Limitation
+* Secure Processing
+* Container Isolation
 
 ### Security Layers
 
@@ -164,27 +108,27 @@ The application uses a dedicated sandbox environment for secure content analysis
 
 ---
 
-# 🐳 Docker Deployment
+## 🐳 Docker Deployment
 
-## Build Containers
+### Build Containers
 
 ```bash
 docker-compose build
 ```
 
-## Start Application
+### Start Application
 
 ```bash
 docker-compose up -d
 ```
 
-## Check Running Containers
+### Check Running Containers
 
 ```bash
 docker ps
 ```
 
-## View Logs
+### View Logs
 
 ```bash
 docker-compose logs -f
@@ -192,15 +136,15 @@ docker-compose logs -f
 
 ---
 
-# 🌐 Nginx Configuration
+## 🌐 Nginx Configuration
 
 Nginx acts as:
 
-- Reverse Proxy
-- Load Balancer
-- SSL Termination
-- API Gateway
-- Security Layer
+* Reverse Proxy
+* Load Balancer
+* SSL Termination
+* API Gateway
+* Security Layer
 
 ### Request Flow
 
@@ -218,15 +162,15 @@ Response
 
 ---
 
-# 📊 API Endpoints
+## 📊 API Endpoints
 
-## Health Check
+### Health Check
 
 ```http
 GET /api/health
 ```
 
-Response
+Response:
 
 ```json
 {
@@ -234,15 +178,13 @@ Response
 }
 ```
 
----
-
-## Analyze News
+### Analyze News
 
 ```http
 POST /api/analyze
 ```
 
-Request
+Request:
 
 ```json
 {
@@ -250,7 +192,7 @@ Request
 }
 ```
 
-Response
+Response:
 
 ```json
 {
@@ -261,40 +203,39 @@ Response
 
 ---
 
-# 📈 Performance Metrics
+## 📈 Performance Metrics
 
-| Metric | Value |
-|----------|---------|
-| Accuracy | 95% |
-| Precision | 94% |
-| Recall | 93% |
-| F1 Score | 94% |
+| Metric        | Value   |
+| ------------- | ------- |
+| Accuracy      | 95%     |
+| Precision     | 94%     |
+| Recall        | 93%     |
+| F1 Score      | 94%     |
 | Response Time | < 2 sec |
 
 ---
 
-# 🔥 Future Enhancements
+## 🔥 Future Enhancements
 
-- Multilingual Detection
-- Image Verification
-- Video Verification
-- WhatsApp Bot Integration
-- Deepfake Detection
-- Real-Time Fact Checking
-- Cloud Deployment
-- Kubernetes Support
+* Multilingual Detection
+* Image Verification
+* Video Verification
+* WhatsApp Bot Integration
+* Deepfake Detection
+* Real-Time Fact Checking
+* Cloud Deployment
+* Kubernetes Support
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **S. Ganesh**
-
 Artificial Intelligence & Machine Learning
 
 ---
 
-# 📜 License
+## 📜 License
 
 This project is licensed under the MIT License.
 
