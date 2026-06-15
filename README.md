@@ -228,6 +228,193 @@ Response:
 
 ---
 
+
+## ⚙️ Project Execution Commands
+
+### Backend (FastAPI)
+
+```bash
+cd backend
+
+venv\Scripts\activate
+
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 6500
+```
+
+Backend API:
+
+```text
+http://localhost:6500/docs
+```
+
+---
+
+### Frontend (React)
+
+```bash
+cd frontend
+
+set PORT=6600
+
+npm install
+
+npm start
+```
+
+Frontend URL:
+
+```text
+http://localhost:6600
+```
+
+---
+
+### Nginx Reverse Proxy
+
+```bash
+cd C:\nginx\nginx-1.31.1
+
+nginx.exe -t
+
+nginx.exe
+```
+
+Reload Nginx:
+
+```bash
+nginx.exe -s reload
+```
+
+Stop Nginx:
+
+```bash
+nginx.exe -s stop
+```
+
+---
+
+### Ngrok (WhatsApp Webhook)
+
+```bash
+cd C:\Users\GANESH\Downloads\ngrok-v3-stable-windows-amd64
+
+ngrok http 6500
+```
+
+Webhook URL:
+
+```text
+https://your-ngrok-url.ngrok-free.dev/whatsapp
+```
+
+Example:
+
+```text
+https://mortuary-slimness-scorch.ngrok-free.dev/whatsapp
+```
+
+---
+
+### Docker Commands
+
+Build Containers:
+
+```bash
+docker compose build
+```
+
+Start Containers:
+
+```bash
+docker compose up -d
+```
+
+View Running Containers:
+
+```bash
+docker ps
+```
+
+View Logs:
+
+```bash
+docker compose logs -f
+```
+
+Backend Logs:
+
+```bash
+docker logs -f whatsapp-fake-news-backend
+```
+
+Stop Containers:
+
+```bash
+docker compose down
+```
+
+---
+
+### MongoDB Commands
+
+Open Mongo Shell:
+
+```bash
+docker exec -it whatsapp-fake-news-mongodb mongosh
+```
+
+MongoDB Operations:
+
+```javascript
+show dbs
+
+use fake_news_db
+
+show collections
+
+db.predictions.find()
+```
+
+---
+
+### Network & Debug Commands
+
+Check Ports:
+
+```bash
+netstat -ano | findstr :6500
+
+netstat -ano | findstr :6600
+
+netstat -ano | findstr :27017
+```
+
+Restart Backend:
+
+```bash
+cd backend
+
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 6500
+```
+
+---
+
+### Port Configuration
+
+| Service         | Port       |
+| --------------- | ---------- |
+| FastAPI Backend | 6500       |
+| React Frontend  | 6600       |
+| MongoDB         | 27017      |
+| Ngrok Webhook   | Public URL |
+
+```
+Backend Docs:  http://localhost:6500/docs
+Frontend UI:   http://localhost:6600
+MongoDB:       mongodb://localhost:27017
+```
+
+
 ## 👨‍💻 Author
 
 **S. Ganesh**
