@@ -228,13 +228,16 @@ Response:
 
 ---
 
+---
 
-## ⚙️ Project Execution Commands
+# ⚙️ Local Development Commands
 
-### Backend (FastAPI)
+## 1️⃣ Start Backend Server
+
+Open a terminal:
 
 ```bash
-cd backend
+cd C:\Users\GANESH\fake-news-detector\backend
 
 venv\Scripts\activate
 
@@ -244,19 +247,25 @@ python -m uvicorn main:app --reload --host 0.0.0.0 --port 6500
 Backend API:
 
 ```text
+http://localhost:6500
+```
+
+Swagger Docs:
+
+```text
 http://localhost:6500/docs
 ```
 
 ---
 
-### Frontend (React)
+## 2️⃣ Start Frontend Server
+
+Open a new terminal:
 
 ```bash
-cd frontend
+cd C:\Users\GANESH\fake-news-detector\frontend
 
 set PORT=6600
-
-npm install
 
 npm start
 ```
@@ -269,31 +278,9 @@ http://localhost:6600
 
 ---
 
-### Nginx Reverse Proxy
+## 3️⃣ Start Ngrok Tunnel (For WhatsApp Webhook)
 
-```bash
-cd C:\nginx\nginx-1.31.1
-
-nginx.exe -t
-
-nginx.exe
-```
-
-Reload Nginx:
-
-```bash
-nginx.exe -s reload
-```
-
-Stop Nginx:
-
-```bash
-nginx.exe -s stop
-```
-
----
-
-### Ngrok (WhatsApp Webhook)
+Open another terminal:
 
 ```bash
 cd C:\Users\GANESH\Downloads\ngrok-v3-stable-windows-amd64
@@ -301,119 +288,112 @@ cd C:\Users\GANESH\Downloads\ngrok-v3-stable-windows-amd64
 ngrok http 6500
 ```
 
+Example Output:
+
+```text
+Forwarding
+https://your-ngrok-url.ngrok-free.dev
+    ->
+http://localhost:6500
+```
+
+---
+
+## 4️⃣ Configure Twilio WhatsApp Sandbox
+
 Webhook URL:
 
 ```text
 https://your-ngrok-url.ngrok-free.dev/whatsapp
 ```
 
-Example:
+Method:
 
 ```text
-https://mortuary-slimness-scorch.ngrok-free.dev/whatsapp
+POST
 ```
 
 ---
 
-### Docker Commands
+## 5️⃣ Verify Backend API
 
-Build Containers:
+Health Check:
 
 ```bash
-docker compose build
+curl http://localhost:6500/
 ```
 
-Start Containers:
+Prediction API:
 
 ```bash
-docker compose up -d
+curl -X POST http://localhost:6500/predict ^
+-H "Content-Type: application/json" ^
+-d "{\"message\":\"Breaking news message\"}"
 ```
 
-View Running Containers:
+History API:
 
 ```bash
-docker ps
+curl http://localhost:6500/history
 ```
 
-View Logs:
+Stats API:
 
 ```bash
-docker compose logs -f
-```
-
-Backend Logs:
-
-```bash
-docker logs -f whatsapp-fake-news-backend
-```
-
-Stop Containers:
-
-```bash
-docker compose down
+curl http://localhost:6500/stats
 ```
 
 ---
 
-### MongoDB Commands
+## 6️⃣ Project Startup Order
 
-Open Mongo Shell:
-
-```bash
-docker exec -it whatsapp-fake-news-mongodb mongosh
-```
-
-MongoDB Operations:
-
-```javascript
-show dbs
-
-use fake_news_db
-
-show collections
-
-db.predictions.find()
+```text
+1. MongoDB
+      ↓
+2. Backend (FastAPI)
+      ↓
+3. Frontend (React)
+      ↓
+4. Ngrok
+      ↓
+5. Twilio WhatsApp Sandbox
 ```
 
 ---
 
-### Network & Debug Commands
+## 7️⃣ Project URLs
 
-Check Ports:
+Frontend:
 
-```bash
-netstat -ano | findstr :6500
-
-netstat -ano | findstr :6600
-
-netstat -ano | findstr :27017
+```text
+http://localhost:6600
 ```
 
-Restart Backend:
+Backend:
 
-```bash
-cd backend
+```text
+http://localhost:6500
+```
 
-python -m uvicorn main:app --reload --host 0.0.0.0 --port 6500
+Swagger API Docs:
+
+```text
+http://localhost:6500/docs
+```
+
+Ngrok Public URL:
+
+```text
+https://your-ngrok-url.ngrok-free.dev
+```
+
+WhatsApp Webhook:
+
+```text
+https://your-ngrok-url.ngrok-free.dev/whatsapp
 ```
 
 ---
-
-### Port Configuration
-
-| Service         | Port       |
-| --------------- | ---------- |
-| FastAPI Backend | 6500       |
-| React Frontend  | 6600       |
-| MongoDB         | 27017      |
-| Ngrok Webhook   | Public URL |
-
-```
-Backend Docs:  http://localhost:6500/docs
-Frontend UI:   http://localhost:6600
-MongoDB:       mongodb://localhost:27017
-```
-
 
 ## 👨‍💻 Author
 
